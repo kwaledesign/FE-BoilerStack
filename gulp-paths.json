@@ -1,0 +1,73 @@
+{
+  "INDEX": {
+    "SRC": ["./app/views/layouts/application.html.erb"],
+    "DEST": "./app/views/layouts/application.html.erb"
+  },
+  "REV": {
+    "SRC": [
+      "./public/**/*.{html,css,js}",
+      "./public/**/*.{gif|jpg|png}",
+      "./public/**/*.{eot|svg|ttf|woff|woff2}"
+    ]
+  },
+  "REV_MANIFEST": {
+    "SRC": ["./rev-manifest.json"],
+    "DEST": "./rev-manifest.json"
+  },
+  "PUBLIC": {
+    "SRC": ["./public/*","./config/locales/views/*"]
+  },
+  "LOCALES": {
+    "SRC": ["./app/assets/common/locales/*.yml", "./app/assets/**/*.yml"],
+    "DEST": "./config/locales/views"
+  },
+  "IMAGES": {
+    "SRC": ["./app/assets/common/images/*.{png,gif,jpg,svg}"],
+    "DEST": "./public/images",
+    "PUBLIC_SRC": ["./public/images/*.{png,gif,jpg}"]
+  },
+  "FONTS": {
+    "SRC": ["./bower_components/pvdm-icon/glyphicons_pro/glyphicons/web/html_css/fonts/*.{eot,svg,ttf,woff,woff2}"],
+    "DEST": "./public/fonts",
+    "PUBLIC_SRC": ["./public/fonts/*.{eot,svg,ttf,woff,woff2}"]
+  },
+  "TEMPLATES": {
+    "SRC": ["./app/assets/**/*.html"],
+    "DEST": "./public/templates",
+    "PUBLIC_SRC": ["./public/templates/*.html"]
+  },
+  "CSS": {
+    "FILE_NAME": "styles.css",
+    "APP": {
+      "SRC": ["./app/assets/**/*.scss"]
+    },
+    "VENDOR": {
+      "SRC": [
+        "./bower_components/pvdm-icon/build/glyphicons.css",
+        "./bower_components/pvdm-notifications/build/pvdm-notifications.css"
+      ]
+    },
+    "DEST": "./public/css",
+    "PUBLIC_SRC": ["./public/css/*.css"]
+  },
+  "JS": {
+    "APP": {
+      "FILE_NAME": "app.js",
+      "SRC": ["./app/assets/**/*module.coffee", "./app/assets/**/*.coffee"]
+    },
+    "VENDOR": {
+      "FILE_NAME": "vendor.js",
+      "SRC": [
+        "./bower_components/angular/angular.min.js",
+        "./bower_components/angular-messages/angular-messages.min.js",
+        "./bower_components/angular-ui-router/release/angular-ui-router.min.js",
+        "./bower_components/angular-validation-match/build/angular-input-match.min.js",
+        "./bower_components/angular-locker/dist/angular-locker.min.js",
+        "./bower_components/lodash/dist/lodash.min.js",
+        "./bower_components/angular-animate/angular-animate.min.js"
+      ]
+    },
+    "DEST": "./public/javascripts",
+    "PUBLIC_SRC": ["./public/javascripts/*.js"]
+  }
+}
