@@ -1,0 +1,21 @@
+<div class="archetypeOffCanvasNav" 
+  ng-class="{'active': nav.isActive}" 
+  ng-swipe-right="nav.isActive = true" 
+  ng-swipe-left="nav.isActive = false">
+
+  <nav class="archetypeNavAccordian--group navmenu navmenu-default navmenu-fixed-left">
+
+    <ocn-section
+      ng-repeat="section in nav.sections"
+      section="section"
+      selected-section="nav.selectedSection">
+        <ocn-link tabs="section.links"></ocn-link>
+    </ocn-section>
+
+    <user-navigation></user-navigation>
+
+  </nav>
+
+  <footer></footer>
+
+</div>

@@ -1,0 +1,17 @@
+# 
+# HTTP Errors Module
+#
+---
+en-US:
+  http_errors:
+    error_403:
+      record_load: "Sorry, you do not have permission to view that {{name || 'resource'}}."
+    error_404:
+      title: 404 Error
+      message: The page you are looking for does not exist. Please check the URL and try again.
+      page_title: 404 Error
+      record_load: "Sorry, that {{name}} does not exist"
+    error_500:
+      title: 500 Error
+      message: Something just went horribly wrong. I blame you.
+      page_title: 500 Error

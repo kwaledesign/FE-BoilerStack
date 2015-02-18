@@ -1,0 +1,27 @@
+<!-- Only show if JS ENABLED -->
+<div class="javascript-enabled">
+
+  <!--Site header-->
+  <site-header></site-header>
+
+  <!--Navigation-->
+  <off-canvas-nav
+    ng-if="archetype.session.valid"
+    id="offCanvasNav"></off-canvas-nav>
+
+  <!--Notifications-->
+  <div notifications></div>
+
+  <!--Wrapper-->
+  <div class="container-fluid l-pinnedNav">
+
+    <viewport-dimmer 
+      class="archetypeViewportDimmer" 
+      ng-class="{'active': dimmer.isActive}"></viewport-dimmer>
+
+    <!--Content-->
+    <ui-view id="qa-top"></ui-view>
+
+  </div>
+
+</div>

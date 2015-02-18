@@ -1,0 +1,16 @@
+<div class="navAccordian {{section.key}}">
+
+  <a href
+    class="navAccordian--heading"
+    ng-click="selectedSection=section.key">
+      <span icon="{{section.icon}}"></span>
+      <span translate>{{section.label}}</span>
+  </a>
+
+  <nav
+    class="navAccordian--collapse"
+    ng-class="{collapse:selectedSection!=section.key}">
+      <ng-transclude><!--links--></ng-transclude>
+  </nav>
+
+</div>
