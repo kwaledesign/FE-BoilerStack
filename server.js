@@ -9,6 +9,24 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+
+// login routes
+app.route('/login')
+
+// show the form (GET http://localhost:1337/login)
+  .get(function(req, res) {
+    res.send('this is the login form');
+ 	})
+
+  // process the form (POST http://localhost:1337/login)
+  .post(function(req, res) {
+    console.log('processing');
+    res.send('processing the login form!');
+ 	});
+
+
+
+
 // create routes for the admin section
 
 // get an instance of the router
@@ -21,6 +39,8 @@ adminRouter.use(function(req, res, next) {
   // continue doing what we were doing and go to the route
   next(); 
 });
+
+
 
 // admin main page. the dashboard (http://localhost:1337/admin)
 adminRouter.get('/', function(req, res) {
