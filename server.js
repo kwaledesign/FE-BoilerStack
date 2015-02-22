@@ -3,6 +3,9 @@ var express = require('express');
 var app     = express();
 var path    = require('path');
 var jwt     = require('jsonwebtoken');
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/db_archetype');
 
 var superSecret = "mysupersecretmessage";
 
@@ -18,7 +21,6 @@ app.get('*', function(req, res) {
 //app.get('/', function(req, res) {
 //  res.sendFile(path.join(__dirname + '/index.html'));
 //});
-
 
 // login routes
 app.route('/login')
