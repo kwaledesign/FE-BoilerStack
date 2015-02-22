@@ -90,7 +90,7 @@ gulp.task( "images", ->
 #
 # - Parses locales for each language set in
 #   gulp-config.json.LOCALES.LANG
-
+###
 locales = ->
   for locale in CONFIG.LOCALES
     fileName = "#{locale}.yml"
@@ -101,7 +101,7 @@ locales = ->
       .pipe( gulp.dest( PATHS.LOCALES.DEST ) )
 
 gulp.task( "locales", locales )
-
+###
 # ----------------------------------------------
 # Compile/concat SASS to /public/assets/css
 # ----------------------------------------------
@@ -170,7 +170,7 @@ gulp.task( "appJs", appJs )
 #     .pipe( gulp.dest( PATHS.JS.DEST ) )
 #     .pipe( $.rev.manifest() )
 #     .pipe( gulp.dest( "./rev/appjs/" ) )
-# 
+#
 # gulp.task( "appJs", appJs )
 
 # ----------------------------------------------
@@ -204,9 +204,9 @@ gulp.task( "index", index )
 # Rev resource URLS
 # ----------------------------------------------
 
-# Rev JS/CSS URLs in application.html.erb
+# Rev JS/CSS URLs in application.html
 revIndex = ->
-  gulp.src( ["./rev/{css,appjs,vendorjs}/rev-manifest.json","./app/views/layouts/application.html.erb"] )
+  gulp.src( ["./rev/{css,appjs,vendorjs}/rev-manifest.json","./app/views/layouts/application.html"] )
     .pipe( $.revCollector( replaceReved: true ) )
     .pipe( gulp.dest( "./app/views/layouts/" ) )
 gulp.task( "revIndex", revIndex )
@@ -248,7 +248,7 @@ gulp.task( "liveReload", liveReload )
 defaultTask = ->
   $.runSequence(
     "cleanPublic",
-    ["locales", "images", "fonts", "vendorJs", "appJs", "css"],
+    ["images", "fonts", "vendorJs", "appJs", "css"],
     #["locales", "images", "fonts", "vendorJs", "appJs", "css", "templates"],
     "cleanRevs",
     ["revIndex", "revCss", "revJs"]
@@ -256,6 +256,15 @@ defaultTask = ->
   )
 
 gulp.task( "default", defaultTask )
+
+
+gulp.task 'develop', ->
+  $.nodemon(
+    script: 'server.js'
+    ext: 'html js'
+    ignore: [ 'ignored.js' ]).on('change', [ '' ]).on 'restart', ->
+    console.log 'restarted!'
+    return
 
 # ----------------------------------------------
 # Watch
