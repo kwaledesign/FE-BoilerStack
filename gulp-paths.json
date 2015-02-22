@@ -1,7 +1,7 @@
 {
   "INDEX": {
-    "SRC": ["./app/views/layouts/application.html.erb"],
-    "DEST": "./app/views/layouts/application.html.erb"
+    "SRC": ["./app/views/layouts/application.html"],
+    "DEST": "./app/views/layouts/application.html"
   },
   "REV": {
     "SRC": [
@@ -15,14 +15,10 @@
     "DEST": "./rev-manifest.json"
   },
   "PUBLIC": {
-    "SRC": ["./public/*","./config/locales/views/*"]
-  },
-  "LOCALES": {
-    "SRC": ["./app/assets/common/locales/*.yml", "./app/assets/**/*.yml"],
-    "DEST": "./config/locales/views"
+    "SRC": ["./public/*"]
   },
   "IMAGES": {
-    "SRC": ["./app/assets/common/images/*.{png,gif,jpg,svg}"],
+    "SRC": ["./app/assets/images/*.{png,gif,jpg,svg}"],
     "DEST": "./public/images",
     "PUBLIC_SRC": ["./public/images/*.{png,gif,jpg}"]
   },
@@ -39,7 +35,7 @@
   "CSS": {
     "FILE_NAME": "styles.css",
     "APP": {
-      "SRC": ["./app/assets/**/*.scss"]
+      "SRC": ["./app/assets/stylesheets/**/*.scss"]
     },
     "VENDOR": {
       "SRC": [
