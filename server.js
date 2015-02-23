@@ -36,6 +36,11 @@ mongoose.connect('mongodb://localhost/db_archetype');
 // ROUTES FOR OUR API
 // ======================================
 
+// set the public folder to serve public assets
+app.use(express.static(__dirname + '/public'));
+
+
+
 // basic route for the home page
 app.get('/', function(req, res) {
   res.send('Welcome to the home page!');
