@@ -225,6 +225,12 @@ apiRouter.get('/me', function(req, res) {
   res.send(req.decoded);
 });
 
+
+// api endpoint to get user information
+apiRouter.get('/me', function(req, res) {
+  res.send(req.decoded);
+});
+
 // REGISTER OUR ROUTES -------------------------------
 app.use('/api', apiRouter);
 
