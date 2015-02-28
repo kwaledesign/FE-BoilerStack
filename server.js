@@ -7,25 +7,22 @@ var app        = express(); // define our app using express
 var bodyParser = require('body-parser'); // get body-parser
 var morgan     = require('morgan'); // used to see requests
 var mongoose   = require('mongoose'); // for working w/ our database
-var port       = process.env.PORT || 8080; // set the port for our app
-var User       = require('./app/models/user'); // require user model
+
+var User       = require('./models/user'); // require user model
 var jwt        = require('jsonwebtoken'); // auth via token lib
 
-// set jwt secret
-var superSecret = 'mysecretstringnoonewilleverguesseventhoughitsingithub';
-
-// DATABASE SETUP
-// connect to database hosted on mongolab
-//mongoose.connect('mongodb://kwaledesign:jada3836@ds047591.mongolab.com:47591/db_archetype');
-// connect to the local database
-mongoose.connect('localhost:27017/db_archetype');
 
 // APP CONFIGURATION ---------------------
+var config     = require('./config');   // app config
+
+// connect to our database
+mongoose.connect(config.database);
+
 // use body parser so we can grab information from POST requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// configure our app to handle CORS requests
+// configure app to handle CORS requests
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
@@ -36,65 +33,15 @@ app.use(function(req, res, next) {
 // log all requests to the console 
 app.use(morgan('dev'));
 
-// ROUTES FOR OUR API
-// ======================================
-
 // basic route for the home page
 app.get('/', function(req, res) {
   res.send('Welcome to the home page!');
 });
 
-// get an instance of the express router
-var apiRouter = express.Router();
+// ROUTES FOR OUR API
+// ======================================
+var apiRoutes = require('./routes/api');
 
-// route to authenticate a user (POST http://localhost:8080/api/authenticate)
-apiRouter.post('/authenticate', function(req, res) {
-
-  // find the user
-  User.findOne({
-    username: req.body.username
-  }).select('name username password').exec(function(err, user) {
-
-    if (err) throw err;
-
-    // no user with that username was found
-    if (!user) {
-      res.json({ 
-        success: false, 
-        message: 'Authentication failed. User not found.' 
-      });
-    } else if (user) {
-
-      // check if password matches
-      var validPassword = user.comparePassword(req.body.password);
-      if (!validPassword) {
-        res.json({ 
-          success: false, 
-          message: 'Authentication failed. Wrong password.' 
-        });
-      } else {
-
-        // if user is found and password is right
-        // create a token
-        var token = jwt.sign({
-          name: user.name,
-          username: user.username
-        }, superSecret, {
-          expiresInMinutes: 1440 // expires in 24 hours
-        });
-
-        // return the information including token as JSON
-        res.json({
-          success: true,
-          message: 'Enjoy your token!',
-          token: token
-        });
-      }   
-
-    }
-
-  });
-});
 
 // route middleware to verify a token
 apiRouter.use(function(req, res, next) {

@@ -1,0 +1,161 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="ngArchetypeApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+
+  <!-- headroom js -->
+  <header class="header headroom">
+    <!-- navIcon -->
+    <a id="navIcon" href="#menu" title="Menu" class="menu-link">
+      <span class="line line-1"></span>
+      <span class="line line-2"></span>
+      <span class="line line-3"></span>
+    </a>
+
+
+    <a ui-sref="home">Archetype</h3></a>
+    <a ui-sref="docs">Docs</a>
+    <a ui-sref="styleguide">Style Guide</a>
+    <a ui-sref="patternlibrary">Pattern Library</a>
+    <a ui-sref="components">Components</a>
+    <a ui-sref="api">API</a>
+    <a ui-sref="testing">Testing</a>
+    <a ui-sref="tooling">Tooling</a>
+    <a ui-sref="status">Build Status</a>
+
+
+  </header>
+
+
+  <!-- off canvas navigation -->
+  <nav id="menu" role="navigation" class="nav--offCanvas">
+
+    <ul class="">
+      <li><a ui-sref="styleguide">Style Guide</a></li>
+      <li><a ui-sref="#">Front End Design Principles</a></li>
+      <li><a ui-sref="componentAPI">Component API</a></li>
+      <li><a ui-sref="colorpallet">Color-Pallet</a></li>
+      <li><a ui-sref="main">main.scss</a></li>
+    </ul>  
+
+    <h3><a ui-sref="utilities">Utilities</a></h3>
+    <ul class="">
+      <li><a ui-sref="utilities.u-colorkit">Colorkit</a></li>
+    </ul>  
+
+    <h3><a href="#/objects">Objects</a></h3>
+    <ul>
+      <li><a ui-sref="objects.o-partition">Partition Object</a></li>
+      <li><a ui-sref="objects.o-button">Button Object</a></li>
+      <li><a ui-sref="objects.o-alert">Alert Object</a></li>
+      <li><a ui-sref="objects.o-nav">Nav-Object</a></li>
+      <li><a ui-sref="objects.o-media">Media-Object</a></li>
+      <li><a ui-sref="objects.o-close">Close-Object</a></li>
+      <li><a ui-sref="objects.o-label">Label-Object</a></li>
+    </ul>
+
+    <h3><a ui-sref="components">Components</a></h3>
+    <ul>
+      <li><a ui-sref="components.c-typography">Typography</a></li>
+      <li><a ui-sref="components.c-page">Page</a></li>
+      <li><a ui-sref="components.c-spacers">Spacers</a></li>
+      <li><a ui-sref="components.c-quotes">Quotes</a></li>
+      <li><a ui-sref="components.c-tables">Tables</a></li>
+      <li><a ui-sref="components.c-rules">Rules</a></li>
+      <li><a ui-sref="components.c-lists">Lists</a></li>
+      <li><a ui-sref="components.c-links">Links</a></li>
+      <li><a ui-sref="components.c-figures">Figures</a></li>
+      <li><a ui-sref="components.c-code">Code</a></li>
+      <li><a ui-sref="components.c-media">Media</a></li>
+      <li><a ui-sref="components.c-forms">Forms</a></li>
+      <li><a ui-sref="components.c-buttons">Buttons</a></li>
+      <li><a ui-sref="components.c-close">Close</a></li>
+      <li><a ui-sref="components.c-alerts">Alerts</a></li>
+      <li><a ui-sref="components.c-tabs">Tabs</a></li>
+      <li><a ui-sref="components.c-partitions">Partitions</a></li>
+      <li><a ui-sref="components.c-labels">Labels</a></li>
+      <li><a ui-sref="components.c-icons">Icons</a></li>
+    </ul>
+
+    <h3><a ui-sref="layout">Layout</a></h3>
+    <ul>
+      <li><a ui-sref="breakpoints">Breakpoints</a></li>
+    </ul>
+
+    <h3><a ui-sref="tests">Tests</a></h3>
+    <ul>
+      <li>tests go here..</li>
+    </ul>
+  </nav>
+  <!--/off canvas navigation -->
+
+
+      <div class="wrap" id="wrap">
+
+        <!--content-->
+        
+        <div ng-view=""></div>
+
+        <div ui-view></div>
+    
+      </div><!--/wrap-->
+
+      <div class="footer">
+        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      </div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/oldieshim.js -->
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <![endif]-->
+    <!-- endbuild -->
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
